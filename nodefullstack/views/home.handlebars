@@ -1,0 +1,14 @@
+<div class="main-body">
+    <div class="car-section">
+        <div class="card-group">
+        {{#each cars}}
+         <div class="card">
+             <div class="card-body">
+                 <h5 class="card-title">{{this.Name}}</h5>
+                 <p class="card-text">{{this.Model}}</p>
+             </div>
+         </div>
+        {{/each}}
+        </div>
+    </div>
+</div>

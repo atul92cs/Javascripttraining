@@ -1,0 +1,20 @@
+const express=require('express');
+const car=require('./routes/carFunctions');
+const company=require('./routes/companyFuncitons');
+const routes=require('./routes/index');
+const flash=require('connect-flash');
+const exphbs=require('express-handlebars');
+const path=require('path');
+const PORT=8080||process.env.PORT;
+const app=express();
+app.engine('handlebars',exphbs({defaultLayout:'main'}));
+app.use(express.static(path.join(__dirname,'public')));
+app.set('view engine','handlebars');
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use('/company',company);
+app.use('/car',car);
+app.use('/',routes);
+app.listen(PORT,()=>{
+    console.log('server started on '+PORT);
+});
