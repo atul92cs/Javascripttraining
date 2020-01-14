@@ -11,12 +11,12 @@ router.post('/add',(req,res)=>{
         if(err)
         {
            req.flash('message',err);
-           res.redirect('/car/add');
+           res.redirect('/add/car');
         }
         else
         {
-           req.flash('message','card added');
-           res.redirect('/car/add');
+           req.flash('message','car added');
+           res.redirect('/add/car');
         }
     });
 });
