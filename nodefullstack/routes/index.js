@@ -2,10 +2,6 @@ const express=require('express');
 const router=express.Router();
 const db=require('../config/database');
 const flash=require('connect-flash');
-db.connect((err)=>{
-  if(err) throw err;
-  console.log('Database connected');
-});
 
 router.get('/',(req,res)=>{
     let sql='select * from cars';
@@ -16,7 +12,7 @@ router.get('/',(req,res)=>{
         }
         else
         {
-           res.render('home',{cars:result});
+           res.render('home',{cars:response});
         }
     });
 });
@@ -31,7 +27,7 @@ router.get('/car/:id',(req,res)=>{
           }
           else
           {
-              res.render('carDetails',{car:response,layout:'detail'});
+              res.render('carDetails',{car:result,layout:'detail'});
           }
       });
 });
@@ -40,11 +36,11 @@ router.get('/car/add',(req,res)=>{
     let query=db.query(sql,(err,result)=>{
         if(err)
         {
-            res.render('addCompany',{layout:'form',message:req.flash('Error occured')});
+            res.render('addCar',{layout:'form',message:req.flash('Error occured')});
         }
         else
         {
-              res.render('addCompany',{layout:'form',cars:result});
+              res.render('addCar',{layout:'form',cars:result});
         }
     });
 });
@@ -53,11 +49,11 @@ router.get('/company/add',(req,res)=>{
    let query=db.query(sql,(err,result)=>{
       if(err)
       {
-        res.render('addCar',{layout:'form',error:err});
+        res.render('addCompany',{layout:'form',message:req.flash(err)});
       }
       else
       {
-        res.render('addCar',{layout:'form',companies:result[0],cars:response[1]});
+        res.render('addCompany',{layout:'form',companies:result[0],cars:result[1]});
       }
    });
 });

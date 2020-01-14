@@ -1,50 +1,26 @@
 <div class="main-body">
     <div class="form-section">
-        {{#if message}}
-<div class="alert alert-primary" role="alert">
-    {{/message}}
-</div>
-{{/if}}
-<form action="/car/add" method="POST">
- <div class="form-group">
-     <input type="text" name="name" id="name" placeholder="Name">
- </div>
- <div class="form-group">
-     <input type="text" name="model" id="model",placeholder="Model">
- </div>
- <div class="form-group">
-    <select name="company" id="company" class="form-control">
-        <option value="0">--Select--</option>
-    {{#each companies}}
-         <option value="{{this.id}}">{{this.Name}}</option>  
-     {{/each}}
-    </select>
- </div>
- <div class="form-group text-center">
-      <button type="submit">Add</button>
- </div>
-</form>
+         <form action="/car/add" method="post">
+          <div class="form-group">
+              <input type="text" name="name" id="name" placeholder="Name" class="form-control">
+          </div>
+          <div class="form-group">
+              <input type="text" name="model" id="model" placeholder="Model" class="form-control">
+          </div>
+          <div class="form-group">
+              <select name="company" id="company" class="form-control-sm">
+                  <option value="0">--SELECT--</option>
+                  {{#each companies}}
+                   <option value="{{this.id}}">{{this.Name}}</option>
+                  {{/each}}
+              </select>
+          </div>
+          <div class="form-group text-center">
+              <button type="submit">Add</button>
+          </div>
+         </form>
     </div>
     <div class="data-section">
-        <table class="table">
-            <thead>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Model</th>
-                <th scope="col">Company</th>
-                <th scope="col">Actions</th>
-            </thead> 
-            <tbody>
-                {{#each cars}}
-                <tr>
-                    <td>{{this.id}}</td>
-                    <td>{{this.Name}}</td>
-                    <td>{{this.Model}}</td>
-                    <td>{{this.Company}}</td>
-                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+
     </div>
 </div>

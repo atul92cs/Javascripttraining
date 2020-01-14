@@ -1,19 +1,22 @@
 const db=require('../config/database');
-const express=require('exrpess');
+const express=require('express');
 const flash=require('connect-flash');
 const router=express.Router();
+
 router.post('/create',(req,res)=>{
     const {name,origin}=req.body;
     let body={Name:name,Origin:origin};
-    let sql='insert into company set ?';
+    let sql='insert into companies set ?';
     let query=db.query(sql,body,(err,result)=>{
         if(err)
         {
-          res.render('addCompany',{layout:'form',message:req.flash(err)});
+            req.flash('message',err);
+            res.redirect('/company/add');
         }
         else
         {
-           res.render('addCompany',{layout:'form',message:req.flash('Company Added')});
+            req.flash('message','Company added');
+            res.redirect('/company/add');
         }
     });
 });
@@ -25,16 +28,11 @@ router.put('/:id',(req,res)=>{
     let query=db.query(sql,body,(err,result)=>{
         if(err)
         {
-            res.status(401).json({
-                msg:'error occured',
-                error:err
-            });
+            req.flash('message',err);
         }
         else
         {
-             res.status(200).json({
-                 msg:'Company details updated'
-             });
+             req.flash('message','Company updated');
         }
     });
 });
