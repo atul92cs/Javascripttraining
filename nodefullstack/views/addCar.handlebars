@@ -1,4 +1,11 @@
 <div class="main-body">
+    <div class="message-section">
+        {{#if message}}
+        <div class="alert alert-primary" role="alert">
+          {{message}}
+        </div>
+        {{/if}}
+    </div>
     <div class="form-section">
          <form action="/car/add" method="post">
           <div class="form-group">

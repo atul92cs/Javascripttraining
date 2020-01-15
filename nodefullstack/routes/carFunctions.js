@@ -10,13 +10,15 @@ router.post('/add',(req,res)=>{
     let query=db.query(sql,body,(err,result)=>{
         if(err)
         {
-           req.flash('message',err);
-           res.redirect('/add/car');
+            req.flash('message',err);
+          res.redirect('/add/car');
+        
         }
         else
         {
-           req.flash('message','car added');
+            req.flash('message','car added');
            res.redirect('/add/car');
+          
         }
     });
 });

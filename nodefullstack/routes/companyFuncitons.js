@@ -11,12 +11,14 @@ router.post('/create',(req,res)=>{
         if(err)
         {
             req.flash('message',err);
-            res.redirect('/company/add');
+            res.redirect('/add/company');
+          
         }
         else
         {
-            req.flash('message','Company added');
-            res.redirect('/company/add');
+            req.flash('message','company created');
+            res.redirect('/add/company');
+           
         }
     });
 });

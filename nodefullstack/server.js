@@ -6,6 +6,7 @@ const flash=require('connect-flash');
 const exphbs=require('express-handlebars');
 const session=require('express-session');
 const path=require('path');
+const cookieParser=require('cookie-parser');
 const db=require('./config/database');
 const PORT=8080||process.env.PORT;
 const app=express();
@@ -16,6 +17,7 @@ db.connect(err=>{
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine','handlebars');
+app.use(cookieParser('keyboard cat'));
 app.use(session({cookie:{maxAge:6000},
  secret:'jackward',
  resave:false,
