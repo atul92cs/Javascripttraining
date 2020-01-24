@@ -4,7 +4,7 @@ function readCars()
 {
   for(i=0;i<cars.length;i++)
   {
-      console.log(cars[i]);69
+      console.log(cars[i]);
   }
 }
 
@@ -17,3 +17,9 @@ filterCars=()=>{
     console.log(selectedCar);
 }
 filterCars();
+loadCars=()=>{
+    cars.forEach(car=>{
+        console.log(car);
+    });
+}
+loadCars();

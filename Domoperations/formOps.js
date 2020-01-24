@@ -1,9 +1,4 @@
 let profiles=[];
-
-function getinput(e)
-{
-
-}
 getInput=(e)=>{
     e.preventDefault();
     let name=document.getElementById('name');
@@ -18,8 +13,8 @@ createId=e=>{
      profile.email=email;
      profiles.push(profile);
      console.log(profiles);
-      name.value='';
-      email.value='';
+      name.value=' ';
+      email.value=' ';
      getProfiles();
 }
 document.getElementById('name-form').addEventListener('submit',getInput);

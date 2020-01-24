@@ -25,3 +25,13 @@ getCompanies=()=>{
     });
 }
 getCompanies();
+loadCountries=()=>{
+    companies.forEach(company=>{
+        let countrylist=document.querySelector('#country-list');
+        let country=document.createTextNode(company.origin);
+        let countryli=document.createElement('li');
+        countryli.appendChild(country);
+        countrylist.appendChild(countryli);
+    });
+}
+loadCountries();
