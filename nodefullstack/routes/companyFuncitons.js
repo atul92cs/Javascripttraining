@@ -10,13 +10,19 @@ router.post('/create',(req,res)=>{
     let query=db.query(sql,body,(err,result)=>{
         if(err)
         {
-            req.flash('message',err);
+            req.session.message={
+                  info:'Error occured',
+                  type:'danger'
+            };
             res.redirect('/add/company');
           
         }
         else
         {
-            req.flash('message','company created');
+            req.session.message={
+                type:'success',
+                info:'Company created'
+            };
             res.redirect('/add/company');
            
         }
@@ -30,12 +36,19 @@ router.put('/:id',(req,res)=>{
     let query=db.query(sql,body,(err,result)=>{
         if(err)
         {
-            req.flash('message',err);
+            req.session.message={
+                type:'danger',
+                info:'error occured'
+            };
+            console.log(err);
         }
         else
         {
-             req.flash('message','Company updated');
-        }
+             req.session.message={
+                 type:'success',
+                 info:'company added'
+             };    
+         }
     });
 });
 router.delete('/:id',(req,res)=>{

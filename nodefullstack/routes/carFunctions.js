@@ -10,13 +10,20 @@ router.post('/add',(req,res)=>{
     let query=db.query(sql,body,(err,result)=>{
         if(err)
         {
-            req.flash('message',err);
+          req.session.message={
+              type:'danger',
+              info:'error occured'
+          };
+          console.log(err);
           res.redirect('/add/car');
         
         }
         else
         {
-            req.flash('message','car added');
+           req.session.message={
+               info:'success',
+               info:'Car created'
+           };
            res.redirect('/add/car');
           
         }
@@ -49,10 +56,11 @@ router.put('/:id',(req,res)=>{
     let query=db.query(sql,data,(err,result)=>{
         if(err)
         {
-          res.status(401).json({
-              message:'error occured',
-              error:err
-          });
+          req.session.message={
+              type:'error',
+              info:'error occured'
+          };
+          res.redirect('');
         }
         else
         {

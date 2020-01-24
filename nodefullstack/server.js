@@ -18,12 +18,16 @@ app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine','handlebars');
 app.use(cookieParser('keyboard cat'));
-app.use(session({cookie:{maxAge:6000},
+app.use(session({cookie:{maxAge:null},
  secret:'jackward',
  resave:false,
  saveUninitialized:false
 }));
-app.use(flash());
+app.use((req,res,next)=>{
+    res.locals.message=req.session.message;
+    delete req.session.message;
+    next();
+});
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

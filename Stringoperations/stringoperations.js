@@ -1,5 +1,5 @@
 const name='Bob lee Swagger';
-console.log(name.split(',')); //Splitting the value of array
+console.log(name.split(' ')); //Splitting the value of array
 const name2='Bob';
 console.log(name2.split('')); //splitting an array
 const name3='Bond';

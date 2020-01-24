@@ -2,13 +2,14 @@
 const cars=['Audi','Buggati','Koinserrg','Bmw','Mercedes'];
 function readCars()
 {
-    cars.map(car=>{
-        console.log(car);
-    });
+  for(i=0;i<cars.length;i++)
+  {
+      console.log(cars[i]);69
+  }
 }
-//Functions after Es6
-readCars();
 
+readCars();
+//Functions after Es6
 filterCars=()=>{
     let selectedCar=cars.filter(car=>{
         return car=='Buggati';
