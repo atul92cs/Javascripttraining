@@ -1,0 +1,35 @@
+#head-section
+{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+#head-section h3
+{
+  text-align: center;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+#body-section
+{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#body-section h4
+{
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-family: cursive;
+}
+#body-section p
+{
+  padding-bottom: 5px;
+  text-align: left;
+  font-family:sans-serif;
+  
+}

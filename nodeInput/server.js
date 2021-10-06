@@ -21,6 +21,20 @@ app.post('/skills',(req,res)=>{
           skills:skills
       });
 });
+app.get('/skill',(req,res)=>{
+    res.status(200).json({
+        skills:skills
+    });
+});
+app.delete('/skills/:name',(req,res)=>{
+    const {name}=req.params;
+    let skill= skills.filter(skill=>{
+         return skill!==name
+    });
+    res.status(200).json({
+        skills:skill
+    });
+});
 app.listen(port,()=>{
     console.log('server started');
 });

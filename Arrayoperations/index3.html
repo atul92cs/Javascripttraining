@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let rannum=[1,2,3,4,4,6,6,7,7,9];
+        let rpnum={};
+        let i=0;
+        let unum=new Set(rannum);
+        do 
+        {
+            if(unum.has(rannum[i]))
+            {
+                rpnum[rannum[i]]=rpnum[rannum[i]]?rpnum[rannum[i]]+1:1;
+            }
+            i++;
+        }
+        while(i<=rannum.length)
+        let newnum =rannum.filter(rn=>{
+            if(unum.has(rn))
+            {
+                unum.delete(rn);
+            }
+            else
+            {
+                return rn;
+            }
+        });
+        newnum.forEach(nwnm=>{
+            console.log(nwnm + 'has occured '+rpnum[nwnm]+'times');
+        });
+    </script>
+</body>
+</html>

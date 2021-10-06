@@ -21,4 +21,6 @@ console.log(heroNames);
 const selectedHero=heroes.filter(hero=>{
     return hero.name=='Batman';
 }); //returning selected element
-console.log(selectedHero);
+let {base,realname}=selectedHero;
+console.log(base);
+console.log(realname);
